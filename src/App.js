@@ -35,12 +35,12 @@ export class App extends Component {
     API(search, currentPage)
       .then(images => {
         if (!images) {
-          toast.error('No such results! Your Majesty', errorOptions);
+          toast.error('No such results!', errorOptions);
           return;
         }
 
         if (images.length > 1) {
-          toast.info('Found! Your Majesty', infoOptions);
+          toast.info('Found!', infoOptions);
         }
 
         this.setState(prevState => ({
@@ -50,7 +50,7 @@ export class App extends Component {
       })
       .catch(error => {
         const { search } = this.state;
-        toast.error(`No images by "${search}", Your Majesty`, errorOptions);
+        toast.error(`No images by "${search}"`, errorOptions);
         this.setState({ error });
       })
       .finally(() => {
